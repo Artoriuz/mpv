@@ -310,8 +310,12 @@ struct gl_video {
     {"ewa_ginseng",          SCALER_EWA_GINSENG}, \
     {"ewa_lanczossharp",     SCALER_EWA_LANCZOSSHARP}, \
     {"ewa_lanczos4sharpest", SCALER_EWA_LANCZOS4SHARPEST}, \
+    {"ewa_lanczosradius",    SCALER_EWA_LANCZOSRADIUS}, \
     {"ewa_lanczossoft",      SCALER_EWA_LANCZOSSOFT}, \
     {"haasnsoft",            SCALER_HAASNSOFT}, \
+    {"ewa_hermite",          SCALER_EWA_HERMITE}, \
+    {"ewa_catmull_rom",      SCALER_EWA_CATMULL_ROM}, \
+    {"ewa_mitchell",         SCALER_EWA_MITCHELL}, \
     {"ewa_robidoux",         SCALER_EWA_ROBIDOUX}, \
     {"ewa_robidouxsharp",    SCALER_EWA_ROBIDOUXSHARP}, \
 

@@ -379,6 +379,10 @@ const struct filter_kernel mp_filter_kernels[] = {
     //   <https://www.imagemagick.org/discourse-server/viewtopic.php?p=128587#p128587>
     {{SCALER_EWA_LANCZOS4SHARPEST, JINC_R4, jinc, .blur = 0.8845120932605005, .resizable = true},
         .polar = true, .window = WINDOW_JINC},
+    // Similar to the above, but sharpened to fit the third zero crossing
+    // at a radius of exactly 3.
+    {{SCALER_EWA_LANCZOSRADIUS, 3, jinc, .blur = 0.9264075766146068, .resizable = true},
+        .polar = true, .window = WINDOW_JINC},
     // Similar to the above, but softened instead, to make even/odd integer
     // contributions exactly symmetrical. Designed to smooth out hash patterns.
     {{SCALER_EWA_LANCZOSSOFT, JINC_R3, jinc, .blur = 1.0164667662867047, .resizable = true},
@@ -396,7 +400,10 @@ const struct filter_kernel mp_filter_kernels[] = {
       .params = {12 / (19 + 9 * M_SQRT2), 113 / (58 + 216 * M_SQRT2)} }},
     {{SCALER_ROBIDOUXSHARP, 2, cubic_bc,
       .params = {6 / (13 + 7 * M_SQRT2), 7 / (2 + 12 * M_SQRT2)} }},
-    {{SCALER_EWA_ROBIDOUX,  2, cubic_bc,
+    {{SCALER_EWA_HERMITE,     1, cubic_bc, .params = {0.0, 0.0}}, .polar = true},
+    {{SCALER_EWA_CATMULL_ROM, 2, cubic_bc, .params = {0.0, 0.5}}, .polar = true},
+    {{SCALER_EWA_MITCHELL,    2, cubic_bc, .params = {1.0/3.0, 1.0/3.0}}, .polar = true},
+    {{SCALER_EWA_ROBIDOUX,    2, cubic_bc,
       .params = {12 / (19 + 9 * M_SQRT2), 113 / (58 + 216 * M_SQRT2)}},
         .polar = true},
     {{SCALER_EWA_ROBIDOUXSHARP, 2,cubic_bc,
